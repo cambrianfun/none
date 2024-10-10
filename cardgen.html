@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambrian</title>
+    <!-- Link to Google Fonts for Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #1B213C;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+        header h2{
+            color: #A684FF;
+            text-align: center;
+        }
+        header p{
+            color: white;
+            font-size: 10px;
+            text-align: center;
+        }
+        .inputSec {
+            background-color: #272B55;
+            border: 2px solid blue;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 15px;
+            text-align: center;
+        }
+        form {
+            text-align: center;
+        }
+        .formBox {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: white;
+            border: none;
+            border-radius: 3px;
+        }
+        .disclaimer {
+            color: red;
+            font-size: 12px;
+        } 
+        button {
+            background-color: green;
+            color: white;
+            border-radius: 3px;
+            border: none;
+            font-size: 15px;
+            padding: 10px 15px;
+        }
+        button:active {
+            background-color: blue;
+        }
+        .outputSec {
+            margin-top: 20px;
+            display: none; /* Hide output section initially */
+            text-align: center; /* Center align the content */
+        }
+        .Card {
+            background-image: url('bg3.png'); /* Ensure this URL is correct */
+            background-size: cover; /* Cover the entire card */
+            background-position: center; /* Center the background image */
+            background-repeat: no-repeat; /* Prevent repeating the image */
+            padding: 15px;
+            border: 1px solid #000;
+            border-radius: 5px;
+            width: 300px; /* Set a width for the card */
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            color: #333; /* Font color */
+            margin: 0 auto; /* Center the card horizontally */
+            text-align: left; /* Align text to the left */
+        }
+        .Card h2 {
+            font-weight: 400;
+            border-bottom: 1px solid red;
+            margin: 0;
+            padding: 2px;
+            font-size: 18px;
+            font-family: 'Lora', sans-serif; /* Use Montserrat font */
+            color: #F0FFE7;
+            text-align: center; /* Center align the heading */
+        }
+        .Card img {
+            border-radius: 15.5px; /* Rounded corners for the image */
+            width: 31px; /* Set image width */
+            height: 31px; /* Maintain aspect ratio */
+            margin-right: 10px; /* Space between image and text */
+            vertical-align: middle; /* Center align with the text */
+        }
+        .Card p {
+            font-family: 'Courier New', Courier, monospace; /* Monotype font for output */
+            font-weight: bold; /* Make the monotype font bold */
+            font-size: 15px;
+            color: white;
+            margin: 5px 15px; /* Margin for paragraph elements */
+        }
+        .Card strong {
+            font-family: Arial, sans-serif;
+            font-size: 10px;
+            color: white;
+            font-weight: 300;
+        }
+        footer {
+            margin-top: auto;
+            text-align: center;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h2>Just for fun</h2>
+        <p>It is designed for mobile only. It might look weird on desktop.</p><br>
+    </header>
+    <main>
+        <div class="inputSec"> 
+            <form id="detailsForm">
+                <p style="color: white;">Details Drop Korun 🙂</p>
+                <input class="formBox" type="text" id="name" placeholder="Name" required><br>
+                <input class="formBox" type="text" id="id" placeholder="Id" required><br>
+                <input class="formBox" type="text" id="section" placeholder="Section" required><br>
+                <p class="disclaimer">****<br>Just for fun.<br>We respect our College and our honorable Teachers.</p>
+            </form>
+            <button onclick="generateDetails()">Generate</button>
+        </div>
+        <div class="outputSec"> 
+            <div class="Card" id="outputCard">
+                <!-- Output will be displayed here -->
+            </div><br>
+            <!-- Removed Download Card button -->
+        </div>
+    </main>
+    <footer>
+        <p style="color: white; font-size: 12px;">Developed by <a style="text-decoration: none; color: orange; font-weight: 500;" href="https://www.facebook.com/smsamiulalaam">Samiul</a></p>
+    </footer>
+
+    <script>
+        function generateDetails() {
+            // Get input values
+            const name = document.getElementById('name').value;
+            const id = document.getElementById('id').value;
+            const section = document.getElementById('section').value;
+
+            // Check if all fields are filled
+            if (name && id && section) {
+                // Display the details in the output section
+                const outputCard = document.getElementById('outputCard');
+                outputCard.innerHTML = `
+                    <div style="display: flex; align-items: center; justify-content: center;">
+                        <img src="Cambrianlogo.png" alt="Prisoner Image" style="width: 31px; height: 31px;"> <!-- Ensure this URL is correct -->
+                        <h2>CAMBRIAN PRISONERS</h2>
+                    </div><br>
+                    <p><strong>নাম:<br></strong> ${name}</p>
+                    <p><strong>কয়েদি নং:<br></strong> ${id}</p>
+                    <p><strong>সেল নং:<br></strong> ${section}</p>
+                `;
+                
+                // Show the output section
+                document.querySelector('.outputSec').style.display = 'block';
+            } else {
+                alert('Are you kidding?🙂');
+            }
+        }
+    </script>
+</body>
+</html>
